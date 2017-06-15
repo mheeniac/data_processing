@@ -6,9 +6,9 @@ class UniqueItems():
     in_dir = "input/"
     out_dir = "output/"
 
-    def __init__(self, filename, key):
+    def __init__(self, filename, key, save_name):
         self.in_path = os.path.join(self.in_dir,filename)
-        self.out_path = os.path.join(self.out_dir,filename)
+        self.out_path = os.path.join(self.out_dir,save_name)
         self.key = key
 
     def unique_items(self):
@@ -60,8 +60,10 @@ class UniqueItems():
                 write_row.append(values['Percentage'])
                 write_row.append(values['Occurrence'])
                 writer.writerow(write_row)
+
 countries = UniqueItems(filename="customers.csv",
-                        key="country")
+                        key="country",
+                        save_name = "countries")
 countries.export_csv()
 
 
